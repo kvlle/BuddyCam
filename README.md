@@ -11,7 +11,7 @@ Raspbian OS -- https://www.raspberrypi.org/downloads/raspbian/
 https://www.pyimagesearch.com/2016/04/18/install-guide-raspberry-pi-3-raspbian-jessie-opencv-3/
 
 
-# Group 7
+# group 
 Joseph Cao
 
 Steven Gurney
@@ -20,10 +20,10 @@ Saswati Swain
 
 Kyle Wright
 
-# Advisor
+# advisor
 Professor Pishro-Nik
 
-# Evaluators
+# evaluators
 Professor Koren
 
 Professor Polizzi
