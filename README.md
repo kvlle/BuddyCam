@@ -1,6 +1,12 @@
 # BuddyCam
 SDP18 BuddyCam
 
+Senior Design Project 2018
+
+University of Massachusetts Amherst
+
+Department of Electrical and Computer Engineering
+
 # project resources
 OpenCV 3.3.0 -- https://github.com/opencv/opencv
 
