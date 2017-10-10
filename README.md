@@ -3,6 +3,7 @@ SDP18 BuddyCam
 
 # project resources
 OpenCV 3.3.0 -- https://github.com/opencv/opencv
+
 Raspbian OS -- https://www.raspberrypi.org/downloads/raspbian/
 
 
