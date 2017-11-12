@@ -18,6 +18,8 @@ https://www.pyimagesearch.com/2016/04/18/install-guide-raspberry-pi-3-raspbian-j
 
 http://www.cs.cornell.edu/courses/cs4758/2011sp/final_projects/spring_2011/Gemici_Zhuang.pdf
 
+http://www.multiwii.com/wiki/index.php?title=Multiwii_Serial_Protocol
+
 
 # group 
 Joseph Cao
