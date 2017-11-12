@@ -20,6 +20,8 @@ http://www.cs.cornell.edu/courses/cs4758/2011sp/final_projects/spring_2011/Gemic
 
 http://www.multiwii.com/wiki/index.php?title=Multiwii_Serial_Protocol
 
+http://python.dronekit.io/
+
 
 # group 
 Joseph Cao
