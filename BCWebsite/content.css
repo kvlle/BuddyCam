@@ -1,0 +1,82 @@
+.main_container {
+  margin: auto;
+  background-color: #272728;
+  height: 500px;
+}
+
+.main_container p{
+  margin: auto;
+  padding:0;
+  font-family: verdana;
+  font-size: 18px;
+  color: #FFFFFF;
+  width: 80%;
+  text-align: center;
+}
+
+.main_container h1{
+  font-family: verdana;
+  font-weight: lighter;
+  font-size: 36px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #FFFFFF;
+  text-align: center;
+  margin: auto;
+}
+
+#parallax {
+  background-image: url("drone2.jpg");
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  animation: fade 2s;
+}
+
+#main_title{
+  display:inline;
+  font-family: sans-serif;
+  text-align: center;
+  line-height: 700px;
+}
+
+#main_title h1 {
+  font-family: verdana;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  font-size: 60px;
+  color: #FFFFFF;
+  background-color: rgba(200,200,200, .4);
+  transition: color 2s ease;
+  animation: fadeInUp 3s;
+}
+
+#block_container {
+  margin: auto;
+  width: 100%;
+}
+
+#block_container img{
+  display: block;
+  margin: auto;
+}
+
+body{
+margin: 0 auto;
+padding: 0;
+background-color: #272728;
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translate(0,40px);}
+  to {opacity: 1; transform: translate(0, 0);}
+}
+
+@keyframes fade {
+  from{opacity: 0;}
+  to{opacity: 1;}
+}
