@@ -7,6 +7,7 @@
   background-size: cover;
   margin: auto;
   animation: fade 2s;
+  z-index: 0;
 }
 
 #main_title{
@@ -14,6 +15,7 @@
   font-family: sans-serif;
   text-align: center;
   line-height: 500px;
+  z-index: 1;
 }
 
 #main_title>h1 {
@@ -25,6 +27,7 @@
   color: #FFFFFF;
  transition: color 2s ease;
   animation: fadeInUp 1s ease-out;
+  z-index: 2;
 }
 
 #block_container {
@@ -40,6 +43,8 @@
 .main_container {
   margin: auto;
   background-color: #ffffff;
+  position: relative;
+  z-index: 1;
 }
 
 .flex_container {
@@ -47,23 +52,25 @@
   margin: auto;
   padding: 10px;
   justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  align-items: center;
   animation: heightAdjust 2s ease;
 }
 
 .flex_container div {
   padding: 0;
   font-size: 24px;
-  background-color:inherit;
-  flex-basis: 30%;
+  background-color:lightgray;
+  flex-basis: 32%;
   border-radius: 2px;
   min-height: 120px;
-  background-color: #2f3241;
 }
 
 .flex_container div p {
   font-family: verdana;
   text-align: center;
-  color:#9feaf9;
+  color:#20515b;
   padding: 0;
   margin: 0;
   font-size: .7em;
