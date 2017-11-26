@@ -18,13 +18,13 @@
 
 #main_title>h1 {
   font-family: verdana;
-  font-weight: 300;
+  font-weight: 100;
   margin: 0;
   padding: 0;
   font-size: 60px;
   color: #FFFFFF;
  transition: color 2s ease;
-  animation: fadeInUp 3s;
+  animation: fadeInUp 1s ease-out;
 }
 
 #block_container {
@@ -39,44 +39,34 @@
 
 .main_container {
   margin: auto;
-  background-color: #2f3241;
-  height: 500px;
-}
-
-.main_container>p{
-  margin: auto;
-  padding:0;
-  font-family: verdana;
-  font-size: 18px;
-  color: #FFFFFF;
-  width: 50%;
-  text-align: center;
-}
-
-.main_container>h1{
-  font-family: verdana;
-  font-weight: lighter;
-  font-size: 36px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  color: #FFFFFF;
-  text-align: center;
-  margin: auto;
+  background-color: #ffffff;
 }
 
 .flex_container {
   display: flex;
-  width: 80%;
   margin: auto;
   padding: 10px;
   justify-content: space-between;
+  animation: heightAdjust 2s ease;
 }
 
 .flex_container div {
+  padding: 0;
   font-size: 24px;
-  background-color:#4286F4;
-  padding: 60px;
+  background-color:inherit;
+  flex-basis: 30%;
   border-radius: 2px;
+  min-height: 120px;
+  background-color: #2f3241;
+}
+
+.flex_container div p {
+  font-family: verdana;
+  text-align: center;
+  color:#9feaf9;
+  padding: 0;
+  margin: 0;
+  font-size: .7em;
 }
 
 body{
@@ -85,9 +75,18 @@ padding: 0;
 background-color: #2f3241;
 }
 
+@viewport {
+  width: device-width;
+}
+
 @keyframes fadeInUp {
-  from {opacity: 0; transform: translate(0,40px);}
+  from {opacity: 0; transform: translate(0,20px);}
   to {opacity: 1; transform: translate(0, 0);}
+}
+
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translate(0,-20px);}
+  to {opacity: 1; transform: translate(0,0);}
 }
 
 @keyframes fade {
