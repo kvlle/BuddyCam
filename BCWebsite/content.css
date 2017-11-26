@@ -82,6 +82,18 @@ padding: 0;
 background-color: #2f3241;
 }
 
+@media screen and (max-width: 600px){
+  .flex_container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .flex_container div {
+    flex-basis: 100%;
+    margin: 10px;
+    width: 100%;
+  }
+}
+
 @viewport {
   width: device-width;
 }
