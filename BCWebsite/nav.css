@@ -3,8 +3,9 @@
   height: 3em;
 }
 .nav_container a{
-  font-family: verdana;
-  font-size: .9em;
+  font-family: Roboto, sans-serif;
+  font-size: 1em;
+  font-weight: 300;
   text-decoration: none;
   color: #9feaf9;
   padding: 15px; 5px;

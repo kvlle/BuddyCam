@@ -12,21 +12,22 @@
 
 #main_title{
   display:inline;
-  font-family: sans-serif;
   text-align: center;
   line-height: 500px;
   z-index: 1;
 }
 
 #main_title>h1 {
-  font-family: verdana;
-  font-weight: 100;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
   margin: 0;
   padding: 0;
   font-size: 60px;
   color: #FFFFFF;
  transition: color 2s ease;
-  animation: fadeInUp 1s ease-out;
+  animation: fadeInDown 1s ease-out;
+  animation: expand 3s ease;
+  letter-spacing: .1em;
   z-index: 2;
 }
 
@@ -61,19 +62,33 @@
 .flex_container div {
   padding: 0;
   font-size: 24px;
-  background-color:lightgray;
   flex-basis: 32%;
   border-radius: 2px;
   min-height: 120px;
 }
 
 .flex_container div p {
-  font-family: verdana;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
   text-align: center;
   color:#20515b;
   padding: 0;
   margin: 0;
   font-size: .7em;
+}
+
+#descriptor {
+  width: 70%;
+  margin: auto;
+}
+
+#descriptor p {
+  font-family: Roboto, sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  vertical-align: middle;
+  color: #20515b;
+  animation: fadeInUp 1s;
 }
 
 body{
@@ -98,9 +113,20 @@ background-color: #2f3241;
   width: device-width;
 }
 
+@keyframes expand {
+  from {letter-spacing: 0;}
+  to {letter-spacing: .1em;}
+}
+
 @keyframes fadeInUp {
   from {opacity: 0; transform: translate(0,20px);}
   to {opacity: 1; transform: translate(0, 0);}
+}
+
+@keyframes fadeInUpDelay {
+  0% {opacity: 0; transform: translate(0,20px);}
+  60% {opacity: 0; transform: translate(0,10px);}
+  100%{opacity: 1; transform: translate(0,0px);}
 }
 
 @keyframes fadeInDown {
