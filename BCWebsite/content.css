@@ -17,7 +17,7 @@
   z-index: 1;
 }
 
-#main_title>h1 {
+#main_title h1 {
   font-family: Roboto, sans-serif;
   font-weight: 300;
   margin: 0;
@@ -53,24 +53,21 @@
   margin: auto;
   padding: 10px;
   justify-content: space-around;
-  align-content: center;
   flex-wrap: wrap;
-  align-items: center;
-  animation: heightAdjust 2s ease;
 }
 
 .flex_container div {
   padding: 0;
   font-size: 24px;
   flex-basis: 32%;
+  height: 400px;
   border-radius: 2px;
-  min-height: 120px;
-  vertical-align: middle;
   margin: auto;
+  align-items: center;
+  align-content: center;
 }
 
 .flex_container img {
-  width: 100%;
   padding-top:10px;
 }
 
@@ -78,10 +75,10 @@
   font-family: Roboto, sans-serif;
   font-weight: 300;
   text-align: center;
-  color:blue;
+  color: #20515b;
   padding: 10px;
   margin: auto;
-  font-size: .9em;
+  font-size: 1.1em;
 }
 
 .flex_container div p {
@@ -97,9 +94,42 @@
 
 #flex_photo {
   width: 30%;
+  max-height: 150px;
   display: block;
   padding: 10px 0;
   margin: auto;
+}
+
+#team_container {
+  display: flex;
+  margin: auto;
+  padding: 10px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#team_container div {
+  padding: 20px 0;
+  font-size: 24px;
+  flex-basis: 50%;
+  border-radius: 2px;
+  margin: auto;
+  align-items: center;
+  align-content: center;
+}
+
+#team_container img {
+  display: block;
+  margin: auto;
+  height: 500px;
+  width: 400px;
+}
+
+#team_container h1 {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  text-align: center;
 }
 
 #doc_container {
@@ -110,7 +140,6 @@
   align-content: center;
   flex-wrap: wrap;
   align-items: center;
-  animation: heightAdjust 2s ease;
 }
 
 #doc_container div {
@@ -122,7 +151,6 @@
   margin: auto;
   flex-wrap: wrap;
   align-items: center;
-  animation: heightAdjust 2s ease;
 }
 
 #doc_container img {
@@ -151,18 +179,21 @@
 }
 
 #descriptor {
-  width: 70%;
+  width: 100%;
   margin: auto;
+  background-color: #2f3241;
+  padding: 1em 0;
 }
 
 #descriptor p {
   font-family: Roboto, sans-serif;
   font-size: 1.5em;
   font-weight: 300;
+  width: 60%;
   text-align: center;
-  vertical-align: middle;
-  color: #20515b;
+  margin: auto;
   animation: fadeInUp 1s;
+  color: #9feaf9;
 }
 
 h2 {
@@ -197,9 +228,9 @@ background-color: #ffffff;
     margin: 10px;
     width: 100%;
   }
-}
-
-@media screen and (max-width: 1000px){
+  #flex_photo {
+    max-height: none;
+  }
   #doc_container {
     flex-direction: column;
     align-items: center;
@@ -209,6 +240,16 @@ background-color: #ffffff;
     flex-basis: 100%;
     margin: 10px;
     width: 70%;
+  }
+  #team_container {
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+  #team_container div {
+    flex-basis: 100%
+    margin: 10px;
+    width: 100%;
   }
 }
 
