@@ -1,3 +1,27 @@
+.nav_container {
+  display:flex;
+  height: 4em;
+  background-color: #2f3241;
+  width: 100%;
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+}
+.nav_container a{
+  font-family: Roboto, sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 2em;
+  text-decoration: none;
+  color: #9feaf9;
+  padding: 15px 30px;
+  box-sizing: border-box;
+}
+
+.nav_container a:hover{
+  border-bottom: 2px solid #9feaf9;
+}
+
 #parallax {
   background-image: url("media/drone1.jpg");
   position: relative;
@@ -60,7 +84,7 @@
   padding: 0;
   font-size: 24px;
   flex-basis: 32%;
-  height: 400px;
+  height: 300px;
   border-radius: 2px;
   margin: auto;
   align-items: center;
@@ -102,14 +126,15 @@
 
 #team_container {
   display: flex;
+  width: 60%;
   margin: auto;
-  padding: 10px;
+  padding: 0;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
 #team_container div {
-  padding: 20px 0;
+  padding: 0;
   font-size: 24px;
   flex-basis: 50%;
   border-radius: 2px;
@@ -121,8 +146,8 @@
 #team_container img {
   display: block;
   margin: auto;
-  height: 500px;
-  width: 400px;
+  height: 300px;
+  width: 230px;
 }
 
 #team_container h1 {
@@ -201,13 +226,13 @@ h2 {
   font-size: 3em;
   color: #2f3241;
   margin: 0;
-  padding: .5em;
+  padding:.3em;
   font-weight: 300;
   text-align: center;
 }
 
-.footer {
-  background-color: #2f3241;
+.spacer {
+  background-color: #ffffff;
   height: 3em;
 }
 

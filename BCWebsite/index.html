@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <head>
   <title>BuddyCam - UMass SDP 2018</title>
-  <link rel="stylesheet" type="text/css" href="nav.css">
   <link rel="stylesheet" type="text/css" href="content.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500" rel="stylesheet">
+  <script src="js/smooth-scroll.js"></script>
 </head>
 
 <body>
   <div class= "nav_container">
-      <a href="index.html">Home</a>
-      <a href="project.html">Project Details</a>
-      <a href="team.html">The Team</a>
-      <a href="documentation.html">Documentation</a>
+      <a data-scroll href="#home">Home</a>
+      <a data-scroll href="#project">Project Details</a>
+      <a data-scroll href="#team">The Team</a>
+      <a data-scroll href="#doc">Documentation</a>
   </div>
-<div class="main_container">
+<div id="home" class="main_container">
   <div id="parallax">
     <div id="main_title">
       <h1>BUDDYCAM</h1>
@@ -31,7 +31,7 @@
       <img id="flex_photo" src="media/cam.png">
       <p>BuddyCam will record and preserve video footage to settle legal
         disputes. We aim to reduce violence imposed both on the victims
-       of </p>
+       of excessive force and on officers.</p>
     </div>
     <div style="animation:fadeInUpDelay 1s ease-out">
       <h1>Simple and Effective</h1>
@@ -42,9 +42,45 @@
     <div style="animation:fadeInUpDelay 1.5s ease-out">
       <h1>Supported by UMPD</h1>
       <img id="flex_photo" src="media/badge.png">
-      <p>Cooperation with UMPD to ensure that our BuddyCam would
-        meet their requirements and recommendations.</p>
+      <p>Cooperating with UMPD to ensure that our solution
+        meets their requirements and recommendations.</p>
     </div>
   </div>
+  <div id="team" class="spacer"></div>
+  <h2>Meet the Team</h2>
+  <div id="team_container">
+    <div>
+      <img src="media/joe.png">
+      <h1>Joseph Cao - CSE</h1>
+    </div>
+    <div>
+      <img src="media/sas.png">
+      <h1>Saswati Swain - EE</h1>
+    </div>
+    <div>
+      <img src="media/steven.png">
+      <h1>Steven Gurney - CSE</h1>
+    </div>
+    <div>
+      <img src="media/kyle.png">
+      <h1>Kyle Wright - CSE</h1>
+    </div>
+</div>
+<div id="doc" class="spacer"></div>
+<h2>Documentation</h2>
+<div id="doc_container">
+  <div>
+    <img src="media/pdr.png">
+    <a href="docs/BuddyCamPDR.pdf" download>Download - PDR Slides</a>
+  </div>
+  <div>
+    <img src="media/mdr.png">
+    <a href="docs/BuddyCamMDR.pdf" download>Download - MDR Slides</a>
+  </div>
+</div>
 </div>
 </body>
+
+<script>
+  var scroll = new SmoothScroll('a[href*="#"]');
+  </script>
