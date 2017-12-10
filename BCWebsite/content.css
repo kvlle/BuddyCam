@@ -1,5 +1,5 @@
 #parallax {
-  background-image: url("drone2.jpg");
+  background-image: url("media/drone1.jpg");
   position: relative;
   background-attachment: fixed;
   background-position: center;
@@ -26,7 +26,7 @@
   color: #FFFFFF;
  transition: color 2s ease;
   animation: fadeInDown 1s ease-out;
-  animation: expand 3s ease;
+  animation: expand 1.5s ease;
   letter-spacing: .1em;
   z-index: 2;
 }
@@ -52,7 +52,7 @@
   display: flex;
   margin: auto;
   padding: 10px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-content: center;
   flex-wrap: wrap;
   align-items: center;
@@ -74,15 +74,80 @@
   padding-top:10px;
 }
 
-.flex_container div p {
+.flex_container div h1 {
   font-family: Roboto, sans-serif;
   font-weight: 300;
   text-align: center;
-  text-decoration: underline;
-  color:#20515b;
+  color:blue;
   padding: 10px;
   margin: auto;
   font-size: .9em;
+}
+
+.flex_container div p {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  color:#20515b;
+  padding: 10px;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  font-size: .9em;
+}
+
+#flex_photo {
+  width: 30%;
+  display: block;
+  padding: 10px 0;
+  margin: auto;
+}
+
+#doc_container {
+  display: flex;
+  margin: auto;
+  padding: 10px;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  animation: heightAdjust 2s ease;
+}
+
+#doc_container div {
+  display: flex;
+  flex-basis: 30%;
+  padding: 10px;
+  justify-content: space-around;
+  align-content: center;
+  margin: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  animation: heightAdjust 2s ease;
+}
+
+#doc_container img {
+  width: 100%;
+  margin: auto;
+  padding: .3em;
+}
+
+#doc_container a {
+  text-decoration: none;
+  font-family: Roboto, sans-serif;
+  font-size: 1.1em;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  padding: 20px 50px;
+  border-radius: 7px;
+  border: 1px solid #2f3241;
+  color: #2f3241;
+}
+
+#doc_container a:hover {
+  color:#ffffff;
+  background-color: #2f3241;
+  transition:
 }
 
 #descriptor {
@@ -93,16 +158,32 @@
 #descriptor p {
   font-family: Roboto, sans-serif;
   font-size: 1.5em;
+  font-weight: 300;
   text-align: center;
   vertical-align: middle;
   color: #20515b;
   animation: fadeInUp 1s;
 }
 
+h2 {
+  font-family: Roboto, sans-serif;
+  font-size: 3em;
+  color: #2f3241;
+  margin: 0;
+  padding: .5em;
+  font-weight: 300;
+  text-align: center;
+}
+
+.footer {
+  background-color: #2f3241;
+  height: 3em;
+}
+
 body{
 margin: 0 auto;
 padding: 0;
-background-color: #2f3241;
+background-color: #ffffff;
 }
 
 @media screen and (max-width: 1000px){
@@ -115,6 +196,19 @@ background-color: #2f3241;
     flex-basis: 100%;
     margin: 10px;
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 1000px){
+  #doc_container {
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+  #doc_container div {
+    flex-basis: 100%;
+    margin: 10px;
+    width: 70%;
   }
 }
 
