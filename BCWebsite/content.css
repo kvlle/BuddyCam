@@ -1,4 +1,4 @@
-.nav_container {
+#nav_container {
   display:flex;
   height: 4em;
   background-color: #2f3241;
@@ -7,7 +7,7 @@
   position: fixed;
   z-index: 1000;
 }
-.nav_container a{
+#nav_container a{
   font-family: Roboto, sans-serif;
   font-size: 1.1em;
   font-weight: 300;
@@ -18,7 +18,7 @@
   box-sizing: border-box;
 }
 
-.nav_container a:hover{
+#nav_container a:hover{
   border-bottom: 2px solid #9feaf9;
 }
 
@@ -72,7 +72,7 @@
   z-index: 1;
 }
 
-.flex_container {
+#flex_container {
   display: flex;
   margin: auto;
   padding: 10px;
@@ -80,7 +80,7 @@
   flex-wrap: wrap;
 }
 
-.flex_container div {
+#flex_container div {
   padding: 0;
   font-size: 24px;
   flex-basis: 32%;
@@ -91,11 +91,11 @@
   align-content: center;
 }
 
-.flex_container img {
+#flex_container img {
   padding-top:10px;
 }
 
-.flex_container div h1 {
+#flex_container div h1 {
   font-family: Roboto, sans-serif;
   font-weight: 300;
   text-align: center;
@@ -105,7 +105,7 @@
   font-size: 1.1em;
 }
 
-.flex_container div p {
+#flex_container div p {
   font-family: Roboto, sans-serif;
   font-weight: 300;
   color:#20515b;
@@ -121,6 +121,16 @@
   max-height: 150px;
   display: block;
   padding: 10px 0;
+  margin: auto;
+}
+
+#project_container {
+
+}
+
+#project_container img{
+  width: 70%;
+  display: block;
   margin: auto;
 }
 
@@ -243,12 +253,12 @@ background-color: #ffffff;
 }
 
 @media screen and (max-width: 1000px){
-  .flex_container {
+  #flex_container {
     flex-direction: column;
     align-items: center;
     margin: auto;
   }
-  .flex_container div {
+  #flex_container div {
     flex-basis: 100%;
     margin: 10px;
     width: 100%;
