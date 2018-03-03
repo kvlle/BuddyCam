@@ -38,11 +38,21 @@
     <TextView
         android:id="@+id/gps_data"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="50dp"
         android:gravity="center"
-        android:text=""
+        android:text="abc"
         android:fontFamily="sans-serif"
-        android:textSize="30dp"
+        android:textSize="15dp"
+        />
+
+    <TextView
+        android:id="@+id/socket_info"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="abc"
+        android:fontFamily="sans-serif"
+        android:textSize="15dp"
         />
 
 </LinearLayout>

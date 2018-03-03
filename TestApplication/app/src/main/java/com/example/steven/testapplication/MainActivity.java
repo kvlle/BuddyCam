@@ -4,37 +4,65 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.net.Inet6Address;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Declare socket information.
     private Socket gpsSocket;
     private final int SERVERPORT = 31234;
     private final String SERVERIP = "35.231.35.232";
-    PrintWriter output;
 
-    //
-    protected void sendGpsData(double lon, double lat) {
+    //Define asynchronous task to send GPS data over socket.
+    class GpsDataTransfer extends AsyncTask<Double,Void,Void> {
 
-        try{
-            InetAddress serverAddr = Inet6Address.getByName(SERVERIP);
-            gpsSocket = new Socket(serverAddr, SERVERPORT);
-            output = new PrintWriter(new OutputStreamWriter(gpsSocket.getOutputStream()));
-            output.print(lon + "," + lat);
-        } catch(UnknownHostException e) {
-            e.printStackTrace();
-    }
-        catch (IOException e) {
-            e.printStackTrace();
+        @Override
+        protected Void doInBackground(Double... args){
+
+            try {
+                //Read in values passed during execution, set them as local double primitives.
+
+                Double latObject, lonObject;
+                latObject = args[0];
+                lonObject = args[1];
+
+                double lat = latObject.doubleValue();
+                double lon = lonObject.doubleValue();
+
+                //Declare a new address object to hold server IP.
+                InetAddress serverAddr = Inet4Address.getByName(SERVERIP);
+                String serverAddrString = serverAddr.getHostAddress();
+                TextView socketStatus = findViewById(R.id.socket_info);
+                socketStatus.setText("Attempting connection to " + serverAddrString + ":" + SERVERPORT);
+                gpsSocket = new Socket(serverAddr, SERVERPORT);
+                if (gpsSocket.isConnected()) {
+                    socketStatus.setText("Connection Made");
+                } else {
+                    socketStatus.setText("Connection Failed");
+                }
+                PrintWriter output = new PrintWriter(new OutputStreamWriter(gpsSocket.getOutputStream()));
+                output.print(lat + "," + lon);
+
+            } catch (UnknownHostException e) {
+                String errorMessage = e.getMessage();
+                TextView socketStatus = findViewById(R.id.socket_info);
+                socketStatus.setText(errorMessage);
+            } catch (IOException e) {
+                String errorMessage = e.getMessage();
+                TextView socketStatus = findViewById(R.id.socket_info);
+                socketStatus.setText(errorMessage);
+            }
+            return null;
         }
     }
 
@@ -50,11 +78,17 @@ public class MainActivity extends AppCompatActivity {
                 public void onLocationChanged(Location location) {
                     //Call if new location is found.
                     double longitude = location.getLongitude();
+                    Double lonObject = new Double(longitude);
                     double latitude = location.getLatitude();
+                    Double latObject = new Double(latitude);
                     TextView gpsDisplayText = findViewById(R.id.gps_data);
                     String gpsText = "Latitude: " + latitude + "\nLongitude " + longitude;
                     gpsDisplayText.setText(gpsText);
-                    sendGpsData(longitude,latitude);
+
+                    //Place gathered coordinates into a double object array to pass to async.
+                    Double[] coordinateHolder = {latObject, lonObject};
+                    new GpsDataTransfer().execute(coordinateHolder);
+
                 }
 
                 @Override
@@ -73,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
             } catch(SecurityException e) {
-
+                    //If fail to get location service, implement a way to get it.
             }
             }
 
