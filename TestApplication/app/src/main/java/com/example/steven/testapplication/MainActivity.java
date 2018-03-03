@@ -8,6 +8,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Socket gpsSocket;
     private final int SERVERPORT = 31234;
     private final String SERVERIP = "35.231.35.232";
+    protected PrintWriter socketWriter;
 
     //Define asynchronous task to send GPS data over socket.
     class GpsDataTransfer extends AsyncTask<Double,Void,Void> {
@@ -36,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
                 latObject = args[0];
                 lonObject = args[1];
 
-                double lat = latObject.doubleValue();
-                double lon = lonObject.doubleValue();
 
                 //Declare a new address object to hold server IP.
                 InetAddress serverAddr = Inet4Address.getByName(SERVERIP);
@@ -45,19 +46,25 @@ public class MainActivity extends AppCompatActivity {
                 TextView socketStatus = findViewById(R.id.socket_info);
                 socketStatus.setText("Attempting connection to " + serverAddrString + ":" + SERVERPORT);
                 gpsSocket = new Socket(serverAddr, SERVERPORT);
+
+                socketWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(gpsSocket.getOutputStream())));
+                socketWriter.print(latObject.toString() + ',' + lonObject.toString());
+                socketWriter.flush();
                 if (gpsSocket.isConnected()) {
                     socketStatus.setText("Connection Made");
                 } else {
                     socketStatus.setText("Connection Failed");
                 }
-                PrintWriter output = new PrintWriter(new OutputStreamWriter(gpsSocket.getOutputStream()));
-                output.print(lat + "," + lon);
 
             } catch (UnknownHostException e) {
                 String errorMessage = e.getMessage();
                 TextView socketStatus = findViewById(R.id.socket_info);
                 socketStatus.setText(errorMessage);
             } catch (IOException e) {
+                String errorMessage = e.getMessage();
+                TextView socketStatus = findViewById(R.id.socket_info);
+                socketStatus.setText(errorMessage);
+            } catch (Exception e) {
                 String errorMessage = e.getMessage();
                 TextView socketStatus = findViewById(R.id.socket_info);
                 socketStatus.setText(errorMessage);
@@ -73,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
             final LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
             try{
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,new LocationListener(){
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,0,new LocationListener(){
                 @Override
                 public void onLocationChanged(Location location) {
                     //Call if new location is found.
