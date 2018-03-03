@@ -8,7 +8,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -42,32 +41,34 @@ public class MainActivity extends AppCompatActivity {
 
                 //Declare a new address object to hold server IP.
                 InetAddress serverAddr = Inet4Address.getByName(SERVERIP);
-                String serverAddrString = serverAddr.getHostAddress();
-                TextView socketStatus = findViewById(R.id.socket_info);
-                socketStatus.setText("Attempting connection to " + serverAddrString + ":" + SERVERPORT);
+                //String serverAddrString = serverAddr.getHostAddress();
+                //TextView socketStatus = findViewById(R.id.socket_info);
+                //socketStatus.setText("Attempting connection to " + serverAddrString + ":" + SERVERPORT);
                 gpsSocket = new Socket(serverAddr, SERVERPORT);
 
                 socketWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(gpsSocket.getOutputStream())));
-                socketWriter.print(latObject.toString() + ',' + lonObject.toString());
-                socketWriter.flush();
-                if (gpsSocket.isConnected()) {
+/*                if (gpsSocket.isConnected()) {
                     socketStatus.setText("Connection Made");
                 } else {
                     socketStatus.setText("Connection Failed");
-                }
+                }  */
+                socketWriter.print(latObject.toString() + ',' + lonObject.toString());
+                socketWriter.flush();
+                //socketStatus.setText("GPS data sent closing socket.");
+                gpsSocket.close();
 
             } catch (UnknownHostException e) {
-                String errorMessage = e.getMessage();
-                TextView socketStatus = findViewById(R.id.socket_info);
-                socketStatus.setText(errorMessage);
+                //String errorMessage = e.getMessage();
+                //TextView socketStatus = findViewById(R.id.socket_info);
+                //socketStatus.setText(errorMessage);
             } catch (IOException e) {
-                String errorMessage = e.getMessage();
-                TextView socketStatus = findViewById(R.id.socket_info);
-                socketStatus.setText(errorMessage);
+                //String errorMessage = e.getMessage();
+                //TextView socketStatus = findViewById(R.id.socket_info);
+                //socketStatus.setText(errorMessage);
             } catch (Exception e) {
-                String errorMessage = e.getMessage();
-                TextView socketStatus = findViewById(R.id.socket_info);
-                socketStatus.setText(errorMessage);
+                //String errorMessage = e.getMessage();
+                //TextView socketStatus = findViewById(R.id.socket_info);
+                //socketStatus.setText(errorMessage);
             }
             return null;
         }
@@ -78,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-            final LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-            try{
+        final LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        try{
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,0,new LocationListener(){
                 @Override
                 public void onLocationChanged(Location location) {
@@ -113,9 +114,9 @@ public class MainActivity extends AppCompatActivity {
                     //Do nothing.
                 }
             });
-            } catch(SecurityException e) {
-                    //If fail to get location service, implement a way to get it.
-            }
-            }
-
+        } catch(SecurityException e) {
+            //If fail to get location service, implement a way to get it.
+        }
     }
+
+}

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BuddyCam GPS</string>
     <string name="title_activity_server">ServerActivity</string>
+    <string name="image_descriptor">drone_icon</string>
 </resources>
